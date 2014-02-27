@@ -5,6 +5,7 @@ set -e
 echo "######################################"
 echo "#    Welcome to MacOS X bootstrap    #"
 echo "######################################"
+echo ""
 
 has_clang=$(which clang > /dev/null)
 if [ $? -gt 0 ]; then
@@ -16,7 +17,6 @@ fi
 
 have_brew=$(which brew > /dev/null)
 if [ $? -gt 0 ]; then
-    echo "Start off by downloading and install homebrew"
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 else
     echo "Brew already installed, skipping installation"
@@ -30,27 +30,116 @@ else
     echo "Brew cask already installed, skipping installation"
 fi
 
-cask_applications="adium dropbox gitx github gpgtools openemu sourcetree \
-                   the-unarchiver vlc airfoil emacs google-chrome iterm2 \
-                   scummvm spectacle utorrent xquartz bankid firefox \
-                   google-drive kindle send-to-kindle spotify vagrant \
-                   cyberduck flux google-earth mactex skype steam virtualbox"
+cask_applications="adium \
+                   bankid \
+                   firefox \
+                   dropbox \
+                   gitx \
+                   github \
+                   gpgtools \
+                   openemu \
+                   sourcetree \
+                   the-unarchiver \
+                   vlc \
+                   airfoil \
+                   emacs \
+                   google-chrome \
+                   iterm2 \
+                   scummvm \
+                   spectacle \
+                   utorrent \
+                   xquartz \
+                   google-drive \
+                   kindle \
+                   send-to-kindle \
+                   spotify \
+                   vagrant \
+                   cyberduck \
+                   flux \
+                   google-earth \
+                   mactex \
+                   skype \
+                   steam \
+                   virtualbox"
 
 for application in $cask_applications; do
-    brew cask install $application
+    already_installed=$(brew cask list $application > /dev/null)
+    if [ $? -gt 0 ]; then
+        brew cask install $application
+    else
+        echo "$application already installed"
+    fi
 done
 
-brew_tools="ack asciidoc aspell autoconf automake bash bazaar leiningen cmake \
-            ctags docbook elixir emacs erlang freetype gdbm gettext git \
-            git-extras glib go graphviz groovy htop-osx irssi libevent \
-            libffi libgit2 libpng libssh2 libtool libyaml mercurial \
-            midnight-commander nmap oniguruma openssl pcre pkg-config pstree \
-            python python3 rbenv readline ruby ruby-build rust s-lang sdl \
-            sdl sqlite tig tmux unixodbc wget xz zsh zsh-syntax-highlighting \
+brew_tools="ack \
+            asciidoc \
+            aspell \
+            autoconf \
+            automake \
+            bash \
+            bazaar \
+            leiningen \
+            cmake \
+            ctags \
+            docbook \
+            elixir \
+            emacs \
+            erlang \
+            freetype \
+            gawk \
+            gdbm \
+            gettext \
+            git \
+            git-extras \
+            glib \
+            go \
+            gnu-sed \
+            graphviz \
+            groovy \
+            htop-osx \
+            irssi \
+            libevent \
+            libffi \
+            libgit2 \
+            libpng \
+            libssh2 \
+            libtool \
+            libyaml \
+            mercurial \
+            midnight-commander \
+            nmap \
+            oniguruma \
+            openssl \
+            pcre \
+            pkg-config \
+            pstree \
+            python \
+            python3 \
+            pyenv-virtualenv \
+            rbenv \
+            readline \
+            ruby \
+            ruby-build \
+            rust \
+            s-lang \
+            sdl \
+            sqlite \
+            tig \
+            tmux \
+            unixodbc \
+            wget \
+            xz \
+            zsh \
+            zsh-syntax-highlighting \
             cowsay"
 
 for tool in $brew_tools; do
-    brew install $tool
+    already_installed=$(brew list $tool > /dev/null)
+    if [ $? -gt 0 ]; then
+        brew install $tool
+    else
+        echo "$tool already installed"
+    fi
 done
 
 cowsay "Your machine is now ready for action!"
