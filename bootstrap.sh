@@ -30,7 +30,7 @@ else
     echo "Brew cask already installed, skipping installation"
 fi
 
-cask_applications="adium dropbox gitx gpgtools openemu sourcetree \
+cask_applications="adium dropbox gitx github gpgtools openemu sourcetree \
                    the-unarchiver vlc airfoil emacs google-chrome iterm2 \
                    scummvm spectacle utorrent xquartz bankid firefox \
                    google-drive kindle send-to-kindle spotify vagrant \
