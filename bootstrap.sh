@@ -19,7 +19,8 @@ have_brew=$(which brew > /dev/null)
 if [ $? -gt 0 ]; then
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 else
-    echo "Brew already installed, skipping installation"
+    echo "Brew already installed, updating it"
+    brew update
 fi
 
 have_brew_cask=$(brew cask > /dev/null)
@@ -122,6 +123,7 @@ brew_tools="ack \
             ruby-build \
             rust \
             s-lang \
+            ssh-copy-id \
             sdl \
             sqlite \
             tig \
