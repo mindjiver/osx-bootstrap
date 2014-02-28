@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 echo "######################################"
 echo "#    Welcome to MacOS X bootstrap    #"
 echo "######################################"
@@ -32,6 +30,9 @@ else
 fi
 
 cask_applications="adium \
+                   adobe-reader \
+                   amethyst \
+                   caffeine \
                    bankid \
                    firefox \
                    dropbox \
@@ -45,23 +46,36 @@ cask_applications="adium \
                    airfoil \
                    emacs \
                    google-chrome \
+                   google-drive \
+                   google-earth \
+                   google-hangouts \
+                   googleappenginelauncher \
+                   hipchat \
+                   hyperdock \
+                   omnigraffle \
                    iterm2 \
                    scummvm \
                    spectacle \
+                   sparrow \
                    utorrent \
                    xquartz \
-                   google-drive \
                    kindle \
                    send-to-kindle \
                    spotify \
+                   skype \
                    vagrant \
                    cyberduck \
                    flux \
-                   google-earth \
                    mactex \
                    skype \
                    steam \
-                   virtualbox"
+                   virtualbox \
+                   openemu \
+                   pycharm \
+                   rubymine \
+                   sqwiggle \
+                   totalspaces \
+                   tunnelblick"
 
 for application in $cask_applications; do
     already_installed=$(brew cask list $application > /dev/null)
@@ -82,6 +96,7 @@ brew_tools="ack \
             leiningen \
             cmake \
             ctags \
+            coreutils \
             docbook \
             elixir \
             emacs \
@@ -95,6 +110,7 @@ brew_tools="ack \
             glib \
             go \
             gnu-sed \
+            gnupg \
             graphviz \
             groovy \
             htop-osx \
