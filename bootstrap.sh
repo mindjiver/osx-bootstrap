@@ -5,6 +5,13 @@ echo "#    Welcome to MacOS X bootstrap    #"
 echo "######################################"
 echo ""
 
+if [ ! -d /opt/chef ]; then
+    echo "Installing Chef"
+    curl -L https://www.opscode.com/chef/install.sh | sudo bash
+else
+    echo "Chef is already installed, skipping"
+fi
+
 has_clang=$(which clang > /dev/null)
 if [ $? -gt 0 ]; then
     open "https://developer.apple.com/downloads/index.action?name=for%20Xcode"
@@ -78,7 +85,7 @@ cask_applications="adium \
                    tunnelblick"
 
 for application in $cask_applications; do
-    already_installed=$(brew cask list $application > /dev/null)
+    already_installed=$(brew cask list $application 2>&1 > /dev/null)
     if [ $? -gt 0 ]; then
         brew cask install $application
     else
@@ -87,6 +94,7 @@ for application in $cask_applications; do
 done
 
 brew_tools="ack \
+	    ansible \
             asciidoc \
             aspell \
             autoconf \
@@ -152,7 +160,7 @@ brew_tools="ack \
             cowsay"
 
 for tool in $brew_tools; do
-    already_installed=$(brew list $tool > /dev/null)
+    already_installed=$(brew list $tool 2>&1 > /dev/null)
     if [ $? -gt 0 ]; then
         brew install $tool
     else
