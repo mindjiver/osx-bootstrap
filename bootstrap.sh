@@ -5,13 +5,6 @@ echo "#    Welcome to MacOS X bootstrap    #"
 echo "######################################"
 echo ""
 
-if [ ! -d /opt/chef ]; then
-    echo "Installing Chef"
-    curl -L https://www.opscode.com/chef/install.sh | sudo bash
-else
-    echo "Chef is already installed, skipping"
-fi
-
 has_clang=$(which clang > /dev/null)
 if [ $? -gt 0 ]; then
     open "https://developer.apple.com/downloads/index.action?name=for%20Xcode"
