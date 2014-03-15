@@ -37,7 +37,6 @@ else
 fi
 
 cask_applications="adium \
-                   adobe-reader \
                    amethyst \
                    caffeine \
                    bankid \
