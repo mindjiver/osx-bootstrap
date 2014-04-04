@@ -85,8 +85,7 @@ for application in $cask_applications; do
     fi
 done
 
-brew_tools="ack \
-	    ansible \
+brew_tools="ansible \
             asciidoc \
             aspell \
             autoconf \
@@ -142,6 +141,7 @@ brew_tools="ack \
             ssh-copy-id \
             sdl \
             sqlite \
+            the_silver_searcher \
             tig \
             tmux \
             unixodbc \
