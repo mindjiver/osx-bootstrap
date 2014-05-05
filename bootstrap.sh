@@ -74,7 +74,8 @@ cask_applications="adium \
                    rubymine \
                    sqwiggle \
                    totalspaces \
-                   tunnelblick"
+                   tunnelblick \
+                   unetbootin"
 
 for application in $cask_applications; do
     already_installed=$(brew cask list $application 2>&1 > /dev/null)
@@ -159,5 +160,7 @@ for tool in $brew_tools; do
         echo "$tool already installed"
     fi
 done
+
+brew upgrade
 
 cowsay "Your machine is now ready for action!"
