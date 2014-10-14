@@ -5,14 +5,6 @@ echo "#    Welcome to MacOS X bootstrap    #"
 echo "######################################"
 echo ""
 
-has_clang=$(which clang > /dev/null)
-if [ $? -gt 0 ]; then
-    open "https://developer.apple.com/downloads/index.action?name=for%20Xcode"
-    read -p "Press enter after installing Apple command line developer tools" _
-else
-    echo "Apple command line developer tools installed, skipping manual download"
-fi
-
 have_brew=$(which brew > /dev/null)
 if [ $? -gt 0 ]; then
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
