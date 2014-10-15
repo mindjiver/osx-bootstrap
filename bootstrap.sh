@@ -22,52 +22,50 @@ else
 fi
 
 cask_applications="adium
-                   amethyst
-                   caffeine
-                   bankid
-                   firefox
-                   dropbox
-                   gitx
-                   github
-                   gpgtools
-                   openemu
-                   sourcetree
-                   the-unarchiver
-                   vlc
                    airfoil
+                   amethyst
+                   bankid
+                   caffeine
+                   cyberduck
+                   dropbox
                    emacs
+                   firefox
+                   flux
+                   github
+                   gitx
                    google-chrome
                    google-drive
                    google-earth
                    google-hangouts
                    googleappenginelauncher
+                   gpgtools
                    hipchat
                    hyperdock
-                   omnigraffle
                    iterm2
-                   scummvm
-                   spectacle
-                   sparrow
-                   utorrent
-                   xquartz
                    kindle
-                   send-to-kindle
-                   spotify
-                   skype
-                   vagrant
-                   cyberduck
-                   flux
                    mactex
-                   skype
-                   steam
-                   virtualbox
+                   omnigraffle
                    openemu
                    pycharm
                    rubymine
+                   scummvm
+                   send-to-kindle
+                   skype
+                   sourcetree
+                   sparrow
+                   spectacle
+                   spotify
                    sqwiggle
+                   steam
+                   the-unarchiver
                    totalspaces
                    tunnelblick
-                   unetbootin"
+                   unetbootin
+                   utorrent
+                   vagrant
+                   virtualbox
+                   vlc
+                   xquartz"
 
 for application in $(echo $cask_applications | tr " " "\n" | sort | tr "\n" " "); do
     already_installed=$(brew cask list $application 2>&1 > /dev/null)
